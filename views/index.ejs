@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4PB</title>
+    <link rel="stylesheet" href="mainpage.css">
+    <script>
+        async function removeObjectById(id) {
+            id = parseInt(id); //because id gets passed as 'n' instead of n
+            try {
+                const response = await fetch('/remove-object', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ id }) // Send the ID in the request body
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert(result.message + " Zmainy nastąpią po odświeżeniu okna");
+                } else {
+                    alert(`Error: ${result.error}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to remove the object.');
+            }
+            $("#confirmDialog").hide();
+        }
+        
+    </script>
+</head>
+<body>
+    <main>
+        <div id="offsideContent">
+            v: 1.0.3
+            <h1><a href="/upload">Upload</a></h1>
+            <select id="offsideSelectSubject">
+                <option value="Wszystkie">Wszystkie</option>
+                <option value="Matematyka">Matematyka</option>
+                <option value="Polski">Polski</option>
+                <option value="Angielski">Angielski</option>
+                <option value="Niemiecki">Niemiecki</option>
+                <option value="Historia">Historia</option>
+                <option value="Biologia">Biologia</option>
+                <option value="Chemia">Chemia</option>
+                <option value="Geografia">Geografia</option>
+                <option value="WOS">WOS</option>
+                <option value="ProgramowanieObiektowe">Programowanie Obiektowe</option>
+                <option value="ProgramowanieMobilne">Programowanie Mobilne</option>
+                <option value="ProgramowanieDesktopowe">Programowanie Desktopowe</option>
+                <option value="DokumentowanieAplikacji">Dokumentowanie Aplikacji</option>
+                <option value="EGZAMIN">EGZAMIN</option>
+                <option value="MATURAMATEMATYKA">MATURA MATEMATYKA</option>
+                <option value="MATURAPOLSKI">MATURA POLSKI</option>
+                <option value="MATURAANGIELSKI">MATURA ANGIELSKI</option>
+                <option value="MATURAINNE">MATURA INNE</option>
+            </select>
+            <div id="offsideSelectType">
+                Notatka <input type="checkbox" name="" id="offsideNotatka"> <br>
+                Sprawdzian <input type="checkbox" name="" id="offsideSprawdzian"> <br>
+                Praca Domowa <input type="checkbox" name="" id="offsidePracaDomowa"> <br>
+                Kartkówka <input type="checkbox" name="" id="offsideKartkowka"> <br>
+                Prezentacja <input type="checkbox" name="" id="offsidePrezentacja"> <br>
+                Inne <input type="checkbox" name="" id="offsideInne"> <br>
+            </div>
+            Sortuj według: <br> 
+            <select id="offsideSelectSorting">
+                <option value="dateUpload">Daty przesłania</option>
+                <option value="dateDue">Daty sprawdzenia</option>
+            </select>
+        </div>
+        <div id="offside">
+        </div>
+        <div id="mainPage">
+            <div id="blockContainer">
+                <% for (block of blocks) { %>
+                    <div 
+                    class="block" 
+                    data-sorttype="dateDue"
+                    data-subject="<%= block.subject %>"
+                    data-type="<%= block.type %>"
+                    style="background-image: url('<%= block.background %>')">
+                        <div class="blockLabel"><%= block.label %></div>
+                        <div>File: <%= block.files %></div>
+                        <div>type: <%= block.type %></div>
+                        <div>subject: <%= block.subject.replace(/([a-z])([A-Z])/g, '$1 $2')//separate string by capital %></div>
+                        <div>id: <%= block.id %></div>
+                        <div>uploadDate: <%= block.uploadDate %></div>
+                        <a href="<%= block.files %>" download="<%= block.label %>">Download</a> <br>
+                        <button onclick="removeObjectById('<%= block.id %>')">Remove Object</button>
+                        <div><%= block.content %></div>
+                        <div>Data sprawdzenia: <%= block.dateDue %></div>
+                    </div>
+                <% } %>
+
+                <% for (block of blocks2) { %>
+                    <div 
+                    class="block" 
+                    data-sorttype="dateUpload"
+                    data-label="<%= block.label %>"
+                    data-files="<%= block.files %>"
+                    data-type="<%= block.type %>"
+                    data-subject="<%= block.subject %>"
+                    data-id="<%= block.id %>"
+                    data-uploadDate="<%= block.uploadDate %>"
+                    data-content="<%= block.content %>"
+                    data-dateDue="<%= block.dateDue %>"
+                    style="background-image: url('<%= block.background %>')">
+                        <div class="blockLabel"><%= block.label %></div>
+                        <div>File: <%= block.files %></div>
+                        <div>type: <%= block.type %></div>
+                        <div>subject: <%= block.subject.replace(/([a-z])([A-Z])/g, '$1 $2')//separate string by capital %></div>
+                        <div>id: <%= block.id %></div>
+                        <div>uploadDate: <%= block.uploadDate %></div>
+                        <a href="<%= block.files %>" download="<%= block.label %>">Download</a> <br>
+                        <button onclick="removeObjectById('<%= block.id %>')">Remove Object</button>
+                        <div><%= block.content %></div>
+                        <div>Data sprawdzenia: <%= block.dateDue %></div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </main>
+
+
+    <div id="expandedBlockContainer">
+        <div id="blockExpandedLabel">
+            Praca Praca We Work TO EARN THE RIGHT to WORK to EARN the RIGHT TO WORK
+            Praca Praca We Work TO EARN THE RIGHT to WORK to EARN the RIGHT TO WORK
+            Praca Praca We Work TO EARN THE RIGHT to WORK to EARN the RIGHT TO WORK
+            Praca Praca We Work TO EARN THE RIGHT to WORK to EARN the RIGHT TO WORK
+        </div>
+        <div id="blockExpandedClose">X</div>
+        <div id="blockExpandedDateDue">
+            Data Sprawdzenia: 34234234234
+        </div>
+        <div id="blockExpandedDateUpload">
+            Data Uploadu: 64564564565
+        </div>
+        <div id="blockExpandedContent">
+            EEEasdasd23123asdd
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex eveniet, ratione cum natus quas consequatur quos nam fuga beatae incidunt eum aspernatur sunt libero, est laudantium facilis reiciendis. Error, quod!
+            Hic sequi, doloribus at repellat porro cumque. Enim sit vel nisi, provident fuga deleniti mollitia harum eius alias quas beatae aliquid amet dolorem saepe voluptates cupiditate quidem id aperiam maiores!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, illum! Reiciendis suscipit quo minima molestiae? Distinctio vel consequatur aspernatur dignissimos vitae perferendis. Illo voluptas cumque amet nulla error porro modi.
+            Ut quaerat est iusto ipsa, porro culpa rerum harum atque sunt odio sint saepe veniam quod fuga quibusdam, iste ipsum officia incidunt nesciunt perferendis deleniti. Exercitationem optio recusandae suscipit quo.
+            Et ad esse consectetur deleniti dolor atque maxime ullam modi iusto velit veniam nobis nemo laudantium fuga dignissimos voluptate reprehenderit, voluptates amet provident repudiandae saepe incidunt molestias. Esse, error culpa!
+            Sit, quos. Iusto aspernatur deleniti necessitatibus perspiciatis molestias veniam alias dolorum totam ducimus suscipit, minus vero voluptatibus dicta. Asperiores, a nostrum veniam in adipisci nobis quaerat provident aut ullam iste?
+            Sequi omnis perferendis, ratione quos nesciunt magni accusamus rerum doloribus fugit, facilis dolores suscipit sit a pariatur. Necessitatibus voluptates odio, assumenda magni molestias eum repudiandae repellat culpa ad accusantium aut.
+            
+        </div>
+        <div id="blockExpandedFiles">
+            <img src="files/1735314613446-word-image-40.png" alt="">
+            <a href="123">Pobierz</a>
+        </div>
+        <div id="blockExpandedRemove">
+            <button onclick="showConfirmDialog(ID)">Usuń wpis</button>
+        </div>
+    </div>
+
+    <div id="confirmDialog">
+        
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="showSelected.js"></script>
+    <script src="expandBlock.js"></script>
+</body>
+</html>

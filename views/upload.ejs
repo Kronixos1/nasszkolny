@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zamieść plik:</title>
+    <link rel="stylesheet" href="upload.css">
+</head>
+<body>
+    <button onclick="window.location.href='/'">Return to Main Page</button>
+    <div id="uploadContainer">
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            Nazwa: <input type="text" name="label" id="" required> <br>
+            Pliki: <input type="file" id="myFile" name="file"> <br>
+            Opis/Tekst: <input type="text" name="content" id=""> <br>
+            Data Sprawdzenia: <input type="date" name="dateDue" id=""> <br>
+            Typ:  
+            <select name="type" id="">
+                <option value="notatka">Notatka</option>
+                <option value="sprawdzian">Sprawdzian</option>
+                <option value="pracaDomowa">Praca Domowa</option>
+                <option value="kartkowka">Kartkówka</option>
+                <option value="prezentacja">Prezentacja</option>
+                <option value="inne">Inne</option>
+            </select> <br>
+            Przedmiot:  
+            <select name="subject" id="">
+                <option value="Matematyka">Matematyka</option>
+                <option value="Polski">Polski</option>
+                <option value="Angielski">Angielski</option>
+                <option value="Niemiecki">Niemiecki</option>
+                <option value="Historia">Historia</option>
+                <option value="Biologia">Biologia</option>
+                <option value="Chemia">Chemia</option>
+                <option value="Geografia">Geografia</option>
+                <option value="WOS">WOS</option>
+                <option value="ProgramowanieObiektowe">Programowanie Obiektowe</option>
+                <option value="ProgramowanieMobilne">Programowanie Mobilne</option>
+                <option value="ProgramowanieDesktopowe">Programowanie Desktopowe</option>
+                <option value="DokumentowanieAplikacji">Dokumentowanie Aplikacji</option>
+                <option value="EGZAMIN">EGZAMIN</option>
+                <option value="MATURAMATEMATYKA">MATURA MATEMATYKA</option>
+                <option value="MATURAPOLSKI">MATURA POLSKI</option>
+                <option value="MATURAANGIELSKI">MATURA ANGIELSKI</option>
+                <option value="MATURAINNE">MATURA INNE</option>
+            </select> <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
