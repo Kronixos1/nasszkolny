@@ -189,14 +189,7 @@ testObj8 = {
 }
 
 let testObjects = [];
-testObjects.push(testObj1);
-testObjects.push(testObj2);
-testObjects.push(testObj3);
-testObjects.push(testObj4);
-testObjects.push(testObj5);
-testObjects.push(testObj6);
-testObjects.push(testObj7);
-testObjects.push(testObj8);
+
 
 app.get('/', (req, res) => {
     fs.readFile('pseudoDB/files.json', 'utf8', (err, data) => {

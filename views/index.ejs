@@ -89,8 +89,10 @@
                         <div>subject: <%= block.subject.replace(/([a-z])([A-Z])/g, '$1 $2')//separate string by capital %></div>
                         <div>id: <%= block.id %></div>
                         <div>uploadDate: <%= block.uploadDate %></div>
+                        <!--
                         <a href="<%= block.files %>" download="<%= block.label %>">Download</a> <br>
                         <button onclick="removeObjectById('<%= block.id %>')">Remove Object</button>
+                        -->
                         <div><%= block.content %></div>
                         <div>Data sprawdzenia: <%= block.dateDue %></div>
                     </div>
