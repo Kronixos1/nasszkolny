@@ -10,11 +10,14 @@
     <button onclick="window.location.href='/'">Return to Main Page</button>
     <div id="uploadContainer">
         <form action="/upload" method="POST" enctype="multipart/form-data">
-            Nazwa: <input type="text" name="label" id="" required> <br>
-            Pliki: <input type="file" id="myFile" name="file"> <br>
-            Opis/Tekst: <input type="text" name="content" id=""> <br>
-            Data Sprawdzenia: <input type="date" name="dateDue" id=""> <br>
-            Typ:  
+            <label for="label">Nazwa:
+            <input type="text" name="label" id="" required> <br>
+            <label for="file">Pliki:
+            <input type="file" id="myFile" name="file"> <br>
+            <label for="dateDue">Data Sprawdzenia:
+            <input type="date" name="dateDue" id=""> <br>
+            <label for="type">Typ:
+            
             <select name="type" id="">
                 <option value="notatka">Notatka</option>
                 <option value="sprawdzian">Sprawdzian</option>
@@ -23,7 +26,8 @@
                 <option value="prezentacja">Prezentacja</option>
                 <option value="inne">Inne</option>
             </select> <br>
-            Przedmiot:  
+            <label for="subject">Przedmiot:
+            
             <select name="subject" id="">
                 <option value="Matematyka">Matematyka</option>
                 <option value="Polski">Polski</option>
@@ -44,6 +48,8 @@
                 <option value="MATURAANGIELSKI">MATURA ANGIELSKI</option>
                 <option value="MATURAINNE">MATURA INNE</option>
             </select> <br>
+            <label for="content">Opis/Tekst:
+            <textarea id="" name="content" rows="5" cols="40" placeholder="..."></textarea><br>
             <button type="submit">Submit</button>
         </form>
     </div>

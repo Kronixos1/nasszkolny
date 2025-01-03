@@ -158,11 +158,15 @@ html {
 
 #blockExpandedDateDue{
     float: left;
-    background-color: blueviolet;
+    color: whitesmoke;
+    margin: 0.2em;
+    margin-top: 0.6em;
 }
 #blockExpandedDateUpload{
     float: right;
-    background-color: blueviolet;
+    color: whitesmoke;
+    margin: 0.2em;
+    margin-top: 0.6em;
 }
 
 #blockExpandedDateUpload{

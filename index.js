@@ -193,6 +193,8 @@ testObj8 = {
 let testObjects = [];
 
 let clientIp;
+
+app.use(requestIp.mw())
 app.get('/', (req, res) => {
     clientIp = req.clientIp;
     fs.readFile('pseudoDB/files.json', 'utf8', (err, data) => {
