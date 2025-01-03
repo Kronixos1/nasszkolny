@@ -12,8 +12,7 @@ $(document).ready(function () {
 
     
     $("#confirmDialog").hide();
-    //$("#expandedBlockContainer").hide();
-    // --CHANGE DIS LATER--
+    $("#expandedBlockContainer").hide();
 });
 
 function Expand(el) {
