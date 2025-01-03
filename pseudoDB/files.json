@@ -1,1 +1,46 @@
-[{"id":1,"label":"Sprawdzian lalka","content":"łeeeeełęęęęęęęęęęęęęę","files":"pseudoDB/files/a.jpg","dateDue":"2021-06-30","background":"/assets/backgrounds/err.png","subject":"Polski","type":"sprawdzian","uploadDate":"2024-10-30/00:00:00"},{"id":2,"label":"zdjęcie sprawdzianu z aplikacji dekstopowych","content":"abcdefgsss","files":"pseudoDB/files/a.jpg","dateDue":"2024-05-30","background":"/assets/backgrounds/err.png","subject":"Matematyka","type":"sprawdzian","uploadDate":"2025-12-30/00:00:15"},{"id":3,"label":"kupa w dupie","content":"abcdefgsss","files":"pseudoDB/files/a.jpg","dateDue":"2024-09-30","background":"/assets/backgrounds/err.png","subject":"Angielski","type":"inne","uploadDate":"2024-11-30/00:00:10"},{"id":4,"label":"kupa w dupie","content":"abcdefgsss","files":"pseudoDB/files/a.jpg","dateDue":"2024-09-30","background":"/assets/backgrounds/err.png","subject":"Angielski","type":"inne","uploadDate":"2024-11-30/00:00:10"},{"id":5,"label":"kupa w dupie","content":"abcdefgsss","files":"pseudoDB/files/a.jpg","dateDue":"2024-09-30","background":"/assets/backgrounds/err.png","subject":"Angielski","type":"inne","uploadDate":"2024-11-30/00:00:10"},{"id":6,"label":"kupa w dupie","content":"abcdefgsss","files":"pseudoDB/files/a.jpg","dateDue":"2024-09-30","background":"/assets/backgrounds/err.png","subject":"Angielski","type":"inne","uploadDate":"2024-11-30/00:00:10"},{"id":7,"label":"kupa w dupie","content":"abcdefgsss","files":"pseudoDB/files/a.jpg","dateDue":"2024-09-30","background":"/assets/backgrounds/err.png","subject":"Angielski","type":"inne","uploadDate":"2024-11-30/00:00:10"},{"id":8,"label":"kupa w dupie","content":"abcdefgsss","files":"pseudoDB/files/a.jpg","dateDue":"2024-09-30","background":"/assets/backgrounds/err.png","subject":"Angielski","type":"inne","uploadDate":"2024-11-30/00:00:10"}]
+[
+  {
+    "id": 1,
+    "label": "456",
+    "content": "",
+    "files": null,
+    "dateDue": "",
+    "background": "/assets/backgrounds/n.png",
+    "subject": "Matematyka",
+    "type": "notatka",
+    "uploadDate": "2025-01-03/14:27:00"
+  },
+  {
+    "id": 2,
+    "label": "123456",
+    "content": "",
+    "files": null,
+    "dateDue": "",
+    "background": "/assets/backgrounds/n.png",
+    "subject": "Matematyka",
+    "type": "notatka",
+    "uploadDate": "2025-01-03/14:27:10"
+  },
+  {
+    "id": 3,
+    "label": "4",
+    "content": "",
+    "files": null,
+    "dateDue": "",
+    "background": "/assets/backgrounds/n.png",
+    "subject": "Matematyka",
+    "type": "notatka",
+    "uploadDate": "2025-01-03/14:27:34"
+  },
+  {
+    "id": 4,
+    "label": "12343543",
+    "content": "",
+    "files": null,
+    "dateDue": "",
+    "background": "/assets/backgrounds/n.png",
+    "subject": "Matematyka",
+    "type": "notatka",
+    "uploadDate": "2025-01-03/14:31:43"
+  }
+]

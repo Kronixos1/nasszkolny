@@ -80,7 +80,7 @@ function showConfirmDialog(id, label) {
         <button onclick="removeObjectById(${id})" style="position: absolute; left: 5%; bottom: 1%;">Usuń</button>
         <button onclick="hideConfirmDialog()" style="position: absolute; right: 5%; bottom: 1%;">Cofnij</button>
         `);
-        $("#confirmDialog").show();
+    $("#confirmDialog").show();
 }
 
 function hideConfirmDialog() {

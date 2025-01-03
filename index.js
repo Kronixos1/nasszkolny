@@ -6,10 +6,12 @@ const path = require('path');
 
 const app = express();
 const port = 3000;
+const requestIp = require('request-ip');
 
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 
 
 app.set('view engine', 'ejs'); // Set EJS as the view engine
@@ -80,7 +82,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
             console.error('Error saving data:', err);
             return res.status(500).send('Error saving data');
         }
-        console.log('Data written to file');
+        console.log('Data written to file by: ', clientIp);
         res.redirect('/'); // Redirect to home page or another confirmation page
     });
 });
@@ -190,8 +192,9 @@ testObj8 = {
 
 let testObjects = [];
 
-
+let clientIp;
 app.get('/', (req, res) => {
+    clientIp = req.clientIp;
     fs.readFile('pseudoDB/files.json', 'utf8', (err, data) => {
         if (err) {
             console.error('Error reading files.json:', err);
@@ -246,18 +249,11 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
-    
-    fs.writeFile('pseudoDB/files.json', JSON.stringify(testObjects), (err) => {
-        if (err) throw err;
-        console.log('Data written to file2');
-        
-        
-    });
 });
 
 app.post('/remove-object', (req, res) => {
-    const idToRemove = req.body.id; // Get the ID from the request body
-
+    const idToRemove = req.body.id;
+    testObjects = testObjects.filter(obj => obj.id !== idToRemove);
     fs.readFile('pseudoDB/files.json', 'utf8', (err, data) => {
         if (err) {
             console.error('Error reading the file:', err);
@@ -276,7 +272,7 @@ app.post('/remove-object', (req, res) => {
                         return res.status(500).json({ error: 'Error writing to the file' });
                     }
 
-                    console.log(`Object with id ${idToRemove} has been removed.`);
+                    console.log(`Object with id ${idToRemove} has been removed by`, clientIp);
                     res.json({ success: true, message: `Object with id ${idToRemove} removed.` });
                 });
             } else {
